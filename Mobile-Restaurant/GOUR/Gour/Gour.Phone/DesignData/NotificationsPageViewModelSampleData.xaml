@@ -1,0 +1,17 @@
+﻿<models:NotificationsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"   
+	xmlns:entities="clr-namespace:Microsoft.Samples.WindowsPhoneCloud.StorageClient;assembly=WindowsPhoneCloud.StorageClient"
+    xmlns:models="clr-namespace:Gour.Phone.ViewModel"
+    ConnectionStatus="Connected"
+    Message="Getting last notification updates...">
+
+    <models:NotificationsPageViewModel.Notifications>
+        <system:String>Notification message 1</system:String>
+        <system:String>Notification message 2</system:String>
+        <system:String>Notification message 3</system:String>
+        <system:String>Notification message 4</system:String>
+        <system:String>Notification message 5</system:String>
+    </models:NotificationsPageViewModel.Notifications>
+</models:NotificationsPageViewModel>

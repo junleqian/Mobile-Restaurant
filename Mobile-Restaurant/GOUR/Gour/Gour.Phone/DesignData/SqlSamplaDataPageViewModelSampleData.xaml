@@ -1,0 +1,14 @@
+﻿<models:SqlSampleDataPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:entities="clr-namespace:Gour.Phone.Models"
+    xmlns:models="clr-namespace:Gour.Phone.ViewModel"
+    Message="Loading..."
+    HasResults="True"
+    IsListing="true">
+
+    <models:SqlSampleDataPageViewModel.Items>
+        <entities:SqlSampleData Id="1" Title="Title 1"  />
+        <entities:SqlSampleData Id="2" Title="Title 2"  />
+    </models:SqlSampleDataPageViewModel.Items>
+</models:SqlSampleDataPageViewModel>

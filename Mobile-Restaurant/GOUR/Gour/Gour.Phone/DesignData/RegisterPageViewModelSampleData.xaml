@@ -1,0 +1,11 @@
+﻿<models:RegisterPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="clr-namespace:Gour.Phone.ViewModel"
+    UserName="sample_user"
+    EMail="sample@user.com"
+    Password="Passw0rd!"
+    ConfirmPassword="Passw0rd!"
+	CanEnableOrDisablePush="true">
+    
+</models:RegisterPageViewModel>

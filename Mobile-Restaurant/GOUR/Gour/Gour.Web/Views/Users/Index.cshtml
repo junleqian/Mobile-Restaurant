@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Gour.Web.Models.UserPermissionsModel>
+@{
+    ViewBag.Title = "Manage User Permissions";
+}
+<h2>
+    Manage User Permissions</h2>
+<p>
+    Select what content type can access each user.
+</p>
+<table>
+    <tr>
+        <th class="left-aligned">
+            User
+        </th>
+         
+        <th>
+            SQL
+        </th>
+        
+    </tr>
+    @{ var i = 0; }
+    @foreach (var item in this.Model)
+    {
+        i++;
+            
+        <tr class="d@( (i % 2))">
+            <td class="left-aligned">
+                @( item.UserName)
+            </td>
+             
+            <td>
+                @{ var sqlChecked = item.SqlUsage ? "checked=\"checked\"" : string.Empty; }
+                <input id="Sql_@( item.UserId)" onclick="EnableContent('@( item.UserId)', actionUrl)"
+                    type="checkbox" @this.Html.Raw(sqlChecked) />
+            </td>
+            
+        </tr>
+    }
+</table>
+<script type="text/javascript">
+//<![CDATA[
+    var actionUrl = '@this.Html.Raw(this.Url.Action("SetUserPermissions", new { userId = "_user_", useTables = "_useTables_", useBlobs = "_useBlobs_", useQueues = "_useQueues_", useSql = "_useSql_" }))';
+//]]>
+</script>

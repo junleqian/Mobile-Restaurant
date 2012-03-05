@@ -1,0 +1,11 @@
+﻿@using Gour.Web.UserAccountWrappers
+@{ var userName = MembershipHelper.UserName; }
+@if (!string.IsNullOrWhiteSpace(userName))
+{
+    <text>Welcome <span class="user-display">@userName</span>! / @Html.ActionLink("Log Off", "LogOff", "Account")
+    </text>
+}
+else
+{
+    @: @Html.ActionLink("Log On", "LogOn", "Account") 
+}

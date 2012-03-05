@@ -1,0 +1,24 @@
+﻿@using Gour.Web.UserAccountWrappers
+@{
+    ViewBag.Title = "Home";
+}
+<h2>@ViewBag.Message</h2>
+<h3>
+    Welcome to the administration site for the Mobile Cloud Application Services!
+</h3>
+@if (MembershipHelper.IsUserLoggedIn())
+{
+    if (MembershipHelper.IsUserAdmin())
+    {
+    <p>
+        Select an option from the menu to manage users' permissions and send Push Notifications to mobile devices.
+    </p>
+    }
+}
+else
+{
+    <p>
+        Click @( Html.ActionLink("Log On", "LogOn", "Account"))
+        to authenticate.
+    </p>
+}

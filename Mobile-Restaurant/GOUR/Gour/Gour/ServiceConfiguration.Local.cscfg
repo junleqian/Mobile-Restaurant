@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Gour" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
+  <Role name="Gour.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="ContainerSASExperiationTime" value="10" />
+      <Setting name="BlobSASExperiationTime" value="10" />
+      <Setting name="SqlSampleDataContextConnectionString" value="Server=mbnd5ps73z.database.windows.net;Database=Gour;User ID=admin-498;Password=Passw0rd!;Trusted_Connection=False;Encrypt=True;Persist Security Info=True;MultipleActiveResultSets=True" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="SslCertificate" thumbprint="97FAF043F15DCAB2CBEF4CE657DD917882956B76" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

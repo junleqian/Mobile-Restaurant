@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoleModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Gour.Web" version="1.6.21103.1459" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <Runtime executionContext="elevated">
+    <EntryPoint>
+      <NetFxEntryPoint assemblyName="Gour.Web.dll" />
+    </EntryPoint>
+  </Runtime>
+  <Properties>
+    <Property name="RoleType" value="Web" />
+    <Property name="RoleName" value="Gour.Web" />
+    <Property name="ProjectName" value="Gour.Web" />
+    <Property name="Configuration" value="Release" />
+    <Property name="Platform" value="AnyCPU" />
+    <Property name="OutputDir" value="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour\obj\Release\Gour.Web\" />
+    <Property name="EntryPoint" value="Gour.Web.dll" />
+    <Property name="SourceDir" value="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour.Web\" />
+    <Property name="RoleTargetFramework" value="v4.0" />
+    <Property name="SitePhysicalPath" value="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour\obj\Release\Gour.Web\" />
+    <Property name="OriginalItemSpec" value="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour\Gour.ccproj" />
+    <Property name="MSBuildSourceProjectFile" value="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour\Gour.ccproj" />
+    <Property name="MSBuildSourceTargetName" value="ResolveSingleWebRoleReference" />
+    <Property name="TargetFrameworkVersion" value="v4.0" />
+    <Property name="TargetRuntimeVersion" value="v4.0" />
+  </Properties>
+  <Sites>
+    <Site name="Web" physicalDirectory="c:\users\nick\documents\visual studio 2010\Projects\Gour\Gour\Gour\obj\Release\Gour.Web\">
+      <Bindings>
+        <Binding name="Endpoint1" endpointName="Endpoint1" />
+        <Binding name="Endpoint2" endpointName="Endpoint2" />
+      </Bindings>
+    </Site>
+  </Sites>
+</RoleModel>
