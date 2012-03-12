@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SL.Phone.Federation</name>
+    </assembly>
+    <members>
+        <member name="T:SL.Phone.Federation.Controls.AccessControlServiceSignIn">
+            <summary>
+            This control is used to aquire a token from ACS using passive protocals between ACS and the Identity Provider.
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Controls.AccessControlServiceSignIn.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Controls.AccessControlServiceSignIn.#ctor">
+            <summary>
+            Initializes a new instance of the AccessControlServiceSignInControl class. 
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Controls.AccessControlServiceSignIn.GetSecurityToken(System.Uri)">
+            <summary>
+            Initiates an asynchronous request which prompts user to sign into an identity provider, from the list returned by the
+            call to the discover service returns a security token via the RequestSecurityTokenResponseCompleted event handler. 
+            </summary>
+            
+            <remarks>
+            Initiates a token request from ACS following these steps:
+            1) Get the list of configured Identity Providers from ACS by calling the discovery service
+            2) Once the user selects their identity provider, navigate to the sign in page of the provider
+            3) Using the WebBrowser control to complete the passive token request complete
+            4) Get the token
+            5) If a RequestSecurityTokenResponseStore is specified, set the token.
+            6) return the token using the RequestSecurityTokenResponseCompleted callback
+            </remarks>
+            <param name="identityProviderDiscoveryService">The Identity provider discovery service from the ACS managment portal.</param>
+        </member>
+        <member name="M:SL.Phone.Federation.Controls.AccessControlServiceSignIn.GoBack">
+            <summary>
+            Performs a backward navigation action, transitioning the control to a previous state. 
+            <remarks>
+            If the control is in a state that it cannot go backwards, no action is taken.
+            </remarks>
+            </summary>
+        </member>
+        <member name="E:SL.Phone.Federation.Controls.AccessControlServiceSignIn.RequestSecurityTokenResponseCompleted">
+            <summary>
+            Occurs when a security token that issued by ACS and ready to be presented to the application.
+            </summary>
+        </member>
+        <member name="E:SL.Phone.Federation.Controls.AccessControlServiceSignIn.NavigatingToIdentityProvider">
+            <summary>
+            Occurs when the user selects an identity provider to log in with.
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Controls.AccessControlServiceSignIn.CanGoBack">
+            <summary>
+            Gets whether there is at least one state that the control can navigate back from.
+            <value>True if a least one state can be undone, or false otherwise.</value>
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Controls.AccessControlServiceSignIn.RequestSecurityTokenResponseStore">
+            <summary>
+            Gets and Sets the RequestSecurityTokenResponseStore which is used to store
+            the RequestSecurityTokenResponse returned from ACS
+            </summary>
+        </member>
+        <member name="T:SL.Phone.Federation.Controls.RequestSecurityTokenResponseCompletedEventArgs">
+            <summary>
+            Provides data for the AccessControlServiceSignIn control RequestSecurityTokenResponseCompleted event
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Controls.RequestSecurityTokenResponseCompletedEventArgs.Error">
+            <summary>
+            Gets any exception thrown during while requesting the security token.
+            </summary>
+            <remarks>If no error occur the null is returned.</remarks>
+        </member>
+        <member name="P:SL.Phone.Federation.Controls.RequestSecurityTokenResponseCompletedEventArgs.RequestSecurityTokenResponse">
+            <summary>
+             Gets the RequestSecurityTokenResponse returned while requesting the security token.
+            </summary>
+            <remarks>If an error occur the null is returned.</remarks>
+        </member>
+        <member name="T:SL.Phone.Federation.Utilities.RequestSecurityTokenResponse">
+            <summary>
+            Contains the data returned in a RequestSecurityTokenResponse
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponse.securityToken">
+            <summary>
+            The raw string value of the security token contained in the RequestSecurityTokenResponse
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponse.tokenType">
+            <summary>
+            The uri which uniquely identifies the type of token contained in the RequestSecurityTokenResponse
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponse.expires">
+            <summary>
+            The expiration time of the token in the RequestSecurityTokenResponse
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponse.created">
+            <summary>
+            The creation time of the token in the RequestSecurityTokenResponse
+            </summary>
+        </member>
+        <member name="T:SL.Phone.Federation.Utilities.IdentityProviderInformation">
+            <summary>
+            DataContract for IdentityProviderInformation returned by the Identity Provider Discover Service
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Utilities.IdentityProviderInformation.LoadImageFromImageUrl">
+            <summary>
+            Retieves the image from ImageUrl
+            </summary>
+            <returns>The image from the url as a BitmapImage</returns>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.IdentityProviderInformation.Name">
+            <summary>
+            The display name for the identity provider.
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.IdentityProviderInformation.LoginUrl">
+            <summary>
+            The url used for Login to the identity provider.
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.IdentityProviderInformation.ImageUrl">
+            <summary>
+            The url that is used to retrieve the image for the identity provider
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.IdentityProviderInformation.EmailAddressSuffixes">
+            <summary>
+            A list fo email address suffixes configured for the identity provider.
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.IdentityProviderInformation.Image">
+            <summary>
+            The image populated by calling LoadImageFromImageUrl
+            </summary>
+        </member>
+        <member name="T:SL.Phone.Federation.Controls.IdentityProviderInformationEventArgs">
+            <summary>
+            Provides data for the AccessControlServiceSignIn control NavigatingToIdentityProvider event.
+            </summary>
+        </member>
+        <member name="P:SL.Phone.Federation.Controls.IdentityProviderInformationEventArgs.IdentityProviderInformation">
+            <summary>
+            Gets the IdentityProviderInformation of the identity provider selected by the user.
+            </summary>
+            <remarks>If no error occur the null is returned.</remarks>
+        </member>
+        <member name="T:SL.Phone.Federation.Utilities.RequestSecurityTokenResponseStore">
+            <summary>
+            Provides a class for storing a RequestSecurityTokenResponse to isolatedStorage
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Utilities.RequestSecurityTokenResponseStore.#ctor">
+            <summary>
+            Initializes a new instance of the RequestSecurityTokenResponseStore class. 
+            </summary>
+        </member>
+        <member name="M:SL.Phone.Federation.Utilities.RequestSecurityTokenResponseStore.ContainsValidRequestSecurityTokenResponse">
+            <summary>
+            Checks if there is a valid RequestSecurityTokenResponse currrenlty in the store.
+            </summary>
+            <remarks>Returns true if there is a RequestSecurityTokenResponse in the store and it has not expired,
+            otherwise retruns false</remarks>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponseStore.RequestSecurityTokenResponse">
+            <summary>
+            Gets or sets the configured RequestSecurityTokenResponse
+            </summary>
+            <remarks>Get returns null if no RequestSecurityTokenResponse has been configured. </remarks>
+        </member>
+        <member name="P:SL.Phone.Federation.Utilities.RequestSecurityTokenResponseStore.SecurityToken">
+            <summary>
+            Gets or sets the security token from the configured RequestSecurityTokenResponse
+            </summary>
+            <remarks>Get returns null if no RequestSecurityTokenResponse has been configured. </remarks>
+        </member>
+    </members>
+</doc>

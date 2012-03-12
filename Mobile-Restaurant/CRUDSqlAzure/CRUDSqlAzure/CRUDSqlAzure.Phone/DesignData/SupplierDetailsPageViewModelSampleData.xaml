@@ -1,0 +1,13 @@
+﻿<viewmodels:SupplierDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsSaving="True"
+    Message="Saving...">
+
+    <viewmodels:SupplierDetailsPageViewModel.Supplier>
+        <models:Supplier SupplierID="1" CompanyName="Company Name" ContactName="Contact Name" ContactTitle="Contact Title" Address="Address" City="City" Region="Region" PostalCode="Postal Code" Country="Country" Phone="Phone" Fax="Fax" HomePage="Home Page"/>
+    </viewmodels:SupplierDetailsPageViewModel.Supplier>
+
+</viewmodels:SupplierDetailsPageViewModel>

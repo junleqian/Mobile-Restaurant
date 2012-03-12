@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application x:Class="Microsoft.Samples.CRUDSqlAzure.Phone.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:fed="clr-namespace:SL.Phone.Federation.Utilities;assembly=SL.Phone.Federation" xmlns:converters="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Converters">
+  <!--Application Resources-->
+  <Application.Resources>
+    <system:String x:Key="ApplicationNameString">CRUD SQL AZURE</system:String>
+    <!--Value converters-->
+    <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    <converters:DateConverter x:Key="DateConverter" />
+    <!--Toolkit services' resources (to avoid having to store the Azure Storage account name and key in the phone application)-->
+    <system:String x:Key="SSLCertificateUrl">http://127.0.0.1:10080/127.0.0.1.cer</system:String>
+    <system:String x:Key="NorthwindOdataEndpoint">https://127.0.0.1/NorthwindODataService</system:String>
+    <system:String x:Key="RegistrationServiceEndpoint">https://127.0.0.1/RegistrationService</system:String>
+    <!-- ACS resources -->
+    <fed:RequestSecurityTokenResponseStore x:Key="rstrStore" />
+    <system:String x:Key="acsNamespace">restaurantappnamespace</system:String>
+    <system:String x:Key="realm">uri:wazmobiletoolkit</system:String>
+  </Application.Resources>
+  <Application.ApplicationLifetimeObjects>
+    <!--Required object that handles lifetime events for the application-->
+    <shell:PhoneApplicationService Launching="Application_Launching" Closing="Application_Closing" Activated="Application_Activated" Deactivated="Application_Deactivated" />
+  </Application.ApplicationLifetimeObjects>
+</Application>

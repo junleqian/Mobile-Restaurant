@@ -1,0 +1,13 @@
+﻿<viewmodels:ProductDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsSaving="True"
+    Message="Saving...">
+
+    <viewmodels:ProductDetailsPageViewModel.Product>
+        <models:Product ProductID="1" CategoryID="2" SupplierID="3" Discontinued="False" ProductName="Sample Product Name 1" UnitPrice="15" UnitsInStock="25" QuantityPerUnit="22" ReorderLevel="2" UnitsOnOrder="10" />
+    </viewmodels:ProductDetailsPageViewModel.Product>
+
+</viewmodels:ProductDetailsPageViewModel>
