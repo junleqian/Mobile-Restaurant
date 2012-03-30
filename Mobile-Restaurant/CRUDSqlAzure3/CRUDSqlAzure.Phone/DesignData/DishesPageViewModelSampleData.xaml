@@ -1,0 +1,16 @@
+﻿<viewmodels:DishesPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsListing="False"
+    Message="Listing..."
+    PageNumber="1">
+
+    <viewmodels:DishesPageViewModel.Items>
+        <models:Dish  DishID="1" DishName="dishName1" RestaurantID="1" CategoryID="1" UnitPrice="0.99" Discontinued="False" Description="This is a pretty long description of a food item that should probably wrap around" />
+        <models:Dish  DishID="2" DishName="dishName2" RestaurantID="1" CategoryID="1" UnitPrice="0.99" Discontinued="False" Description="A short one" />
+        <models:Dish  DishID="3" DishName="dishName3" RestaurantID="1" CategoryID="1" UnitPrice="0.99" Discontinued="False" Description="Another short one" />
+    </viewmodels:DishesPageViewModel.Items>
+
+</viewmodels:DishesPageViewModel>

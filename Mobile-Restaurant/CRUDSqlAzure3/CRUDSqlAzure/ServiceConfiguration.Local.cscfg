@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Microsoft.Samples.CRUDSqlAzure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
+  <Role name="CRUDSqlAzure.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="ContainerSASExperiationTime" value="10" />
+      <Setting name="BlobSASExperiationTime" value="10" />
+      <Setting name="SqlSampleDataContextConnectionString" value="Server=mbnd5ps73z.database.windows.net;Database=CRUDSqlAzure3;User ID=admin-498@mbnd5ps73z;Password=Passw0rd!;Trusted_Connection=False;Encrypt=True;Persist Security Info=True;MultipleActiveResultSets=True" />
+      <Setting name="realm" value="uri:wazmobiletoolkit" />
+      <Setting name="serviceKey" value="iGkSRsrd6hcA6NpYNUNGckTq8bIF7w6g1kOZ8zvgW5k=" />
+      <Setting name="trustedIssuersIdentifier" value="https://restaurantappnamespace.accesscontrol.windows.net/" />
+      <Setting name="trustedIssuerName" value="watwindowsphone" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="SslCertificate" thumbprint="F8ACE24A36F93B006BFAF495F6C14FB827AC61A3" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

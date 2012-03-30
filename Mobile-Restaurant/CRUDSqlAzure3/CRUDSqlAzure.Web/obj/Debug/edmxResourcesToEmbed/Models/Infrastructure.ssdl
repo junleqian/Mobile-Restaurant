@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRUDSqlAzureDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CRUDSqlAzureDBModelStoreContainer">
+    <EntitySet Name="User" EntityType="CRUDSqlAzureDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPrivilege" EntityType="CRUDSqlAzureDBModel.Store.UserPrivilege" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="UserPrivilege">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="1024" />
+    <Property Name="Privilege" Type="nvarchar" Nullable="false" MaxLength="1024" />
+  </EntityType>
+</Schema>
