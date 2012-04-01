@@ -39,10 +39,10 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <!--Image Name="DishImage" Grid.Row="0" Width="320" Height="240" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding dishImage,Converter={StaticResource imgConverter}}" /-->
-            <Image Name="DishImage2" Grid.Row="0" Width="320" Height="240" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Microsoft.Samples.CRUDSqlAzure.Phone;component/Images/gour_noimage.png"/>
+            <Image Name="DishImage" Grid.Row="0" Width="320" Height="240" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding Image,Converter={StaticResource imgConverter}}" />
+            <!--Image Name="DishImage2" Grid.Row="0" Width="320" Height="240" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Microsoft.Samples.CRUDSqlAzure.Phone;component/Images/gour_noimage.png"/-->
             <TextBlock Name="DishPrice" Text="$9.99" Margin="340,0,0,0" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-            <TextBlock Name="DishDescription" Text="Description" Margin="12,240,0,0" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
+            <TextBlock Name="DishDescription" Text="{Binding Description}" Margin="12,240,0,0" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
             
             <ListBox x:Name="ItemsListBox" Grid.Row="1" ItemsSource="{Binding Items}" SelectionChanged="ItemSelectionChanged">
                 <ListBox.Template>

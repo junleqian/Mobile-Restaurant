@@ -51,7 +51,8 @@ namespace Microsoft.Samples.CRUDSqlAzure.Phone.Pages
             base.OnBackKeyPress(e);
         }
 
-        //byte[] dishImage;
+        byte[] dishImageBytes;
+        string dishDescription;
         BitmapImage dishImage;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -74,9 +75,14 @@ namespace Microsoft.Samples.CRUDSqlAzure.Phone.Pages
                 PhoneHelpers.RemoveApplicationState("CurrentRestaurantDishRow");
                 //TODO: technically these should be set using data binding
                 DishPrice.Text = '$' + String.Format("{0:0.00}", dish.UnitPrice);
-                DishDescription.Text = dish.Description;
-                //dishImage = dish.Image;
-                if (dish.Image != null && false)
+                //DishDescription.Text = dish.Description;
+                DishDescription.DataContext = dish;
+                DishImage.DataContext = dish;
+                //dishDescription = dish.Description;
+                //dishImageBytes = dish.Image;
+                
+                /*
+                if (dish.Image != null)
                 {
                     //TODO: needs valid bmp image loaded in db
                     MemoryStream memStream = new MemoryStream(dish.Image);
@@ -85,7 +91,7 @@ namespace Microsoft.Samples.CRUDSqlAzure.Phone.Pages
                     dishImage = new BitmapImage();
                     dishImage.SetSource(memStream);
                     DishImage2.Source = dishImage;
-                }
+                }*/
             }
 
             /*

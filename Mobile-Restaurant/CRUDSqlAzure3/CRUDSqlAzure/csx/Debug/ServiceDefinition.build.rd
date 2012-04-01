@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Microsoft.Samples.CRUDSqlAzure" generation="1" functional="0" release="0" Id="f4338e53-54c4-456f-b448-1f5f74e07540" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Microsoft.Samples.CRUDSqlAzure" generation="1" functional="0" release="0" Id="0108a356-402d-47e3-ad58-09226f685d8e" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="Microsoft.Samples.CRUDSqlAzureGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -169,14 +169,14 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="dae5be4e-e6a7-4e45-a290-8fd09a66f9ea" ref="Microsoft.RedDog.Contract\ServiceContract\Microsoft.Samples.CRUDSqlAzureContract@ServiceDefinition.build">
+    <implementation Id="fa9d7623-06ac-4bc4-8aa0-f45c5fd2fc2b" ref="Microsoft.RedDog.Contract\ServiceContract\Microsoft.Samples.CRUDSqlAzureContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="df15e745-dc5d-45b0-ae55-04b012504455" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="2f60e3d8-0343-49de-87dd-a02284bb5e02" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/Microsoft.Samples.CRUDSqlAzure/Microsoft.Samples.CRUDSqlAzureGroup/CRUDSqlAzure.Web:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="bdfb3bd0-52b3-4109-b6dd-2ac498b8f3d2" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint2@ServiceDefinition.build">
+        <interfaceReference Id="d5d956c4-667a-47d3-ba12-205e1bde8dee" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint2@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/Microsoft.Samples.CRUDSqlAzure/Microsoft.Samples.CRUDSqlAzureGroup/CRUDSqlAzure.Web:Endpoint2" />
           </inPort>
