@@ -23,7 +23,10 @@
       <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="SslCertificate" />
       <InputEndpoint name="Endpoint2" protocol="http" port="10080" />
     </Endpoints>
-    <Imports></Imports>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
     <ConfigurationSettings>
       <Setting name="ContainerSASExperiationTime" />
       <Setting name="BlobSASExperiationTime" />

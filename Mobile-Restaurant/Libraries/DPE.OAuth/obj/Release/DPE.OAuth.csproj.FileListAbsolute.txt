@@ -1,0 +1,3 @@
+D:\repo\Mobile-Restaurant\Mobile-Restaurant\Libraries\DPE.OAuth\bin\Release\Microsoft.Samples.DPE.OAuth.dll
+D:\repo\Mobile-Restaurant\Mobile-Restaurant\Libraries\DPE.OAuth\obj\Release\ResolveAssemblyReference.cache
+D:\repo\Mobile-Restaurant\Mobile-Restaurant\Libraries\DPE.OAuth\obj\Release\Microsoft.Samples.DPE.OAuth.dll

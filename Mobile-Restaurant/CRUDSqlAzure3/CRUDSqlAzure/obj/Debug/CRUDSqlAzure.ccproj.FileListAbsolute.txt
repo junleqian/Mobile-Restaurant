@@ -50,3 +50,4 @@ C:\WindowsAzure\WATWindowsPhone2\Samples\WP7.1\CRUDSqlAzure3\CRUDSqlAzure\obj\De
 C:\WindowsAzure\WATWindowsPhone2\Samples\WP7.1\CRUDSqlAzure3\CRUDSqlAzure\obj\Debug\CRUDSqlAzure.Web\bin\System.Web.WebPages.Razor.dll
 C:\WindowsAzure\WATWindowsPhone2\Samples\WP7.1\CRUDSqlAzure3\CRUDSqlAzure\obj\Debug\CRUDSqlAzure.Web\bin\System.Web.WebPages.Razor.xml
 C:\WindowsAzure\WATWindowsPhone2\Samples\WP7.1\CRUDSqlAzure3\CRUDSqlAzure\obj\Debug\CRUDSqlAzure.Web\bin\System.Web.WebPages.xml
+D:\repo\Mobile-Restaurant\Mobile-Restaurant\CRUDSqlAzure3\CRUDSqlAzure\bin\Debug\ServiceConfiguration.cscfg

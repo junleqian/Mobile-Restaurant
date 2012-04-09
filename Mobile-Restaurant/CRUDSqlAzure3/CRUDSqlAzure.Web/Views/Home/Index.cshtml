@@ -1,4 +1,7 @@
 ﻿@using Microsoft.Samples.CRUDSqlAzure.Web.Infrastructure
+@using System;
+@using System.Data;
+@using System.Data.SqlClient;
 @{
     ViewBag.Title = "Home";
 }
@@ -10,6 +13,61 @@
 {
     if (MembershipHelper.IsUserAdmin())
     {
+        
+        <table>
+    <th class="left-aligned">
+            OrderID
+        </th>
+        <th>
+           OrderDate
+        </th>
+        <th>
+            CustomerId
+        </th>
+        <th>
+            ReservationID
+        </th>
+        <th>
+            Confirmation
+        </th>
+    @{
+        string connectionString = "Server=mbnd5ps73z.database.windows.net;Database=CRUDSqlAzure3;User ID=admin-498@mbnd5ps73z;Password=Passw0rd!;Trusted_Connection=False;Encrypt=True;Persist Security Info=True;MultipleActiveResultSets=True";
+        string queryString = "SELECT * FROM Orders";
+        var i = 0;
+        SqlConnection DbConnection = new SqlConnection(connectionString);
+        DbConnection.Open();
+        SqlCommand DbCommand = new SqlCommand(queryString, DbConnection);
+     
+        SqlDataReader DbReader = DbCommand.ExecuteReader();
+        
+      }
+    @while (DbReader.Read())
+    {
+        i++;
+      <tr class="d@((i % 2))">
+      <td>
+      @(DbReader[0])
+      </td>
+      <td>
+      @(DbReader[1])
+      </td>
+      <td>
+      @(DbReader[2])
+      </td>
+      <td>
+      @(DbReader[3])
+      </td>
+      <td>
+      </td>
+      </tr>  
+        
+        
+        
+        
+        
+    }
+    
+    </table>
     <p>
         Select an option from the menu to manage users' permissions.
     </p>

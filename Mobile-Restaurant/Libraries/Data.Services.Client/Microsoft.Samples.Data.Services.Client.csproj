@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4FE8D3CE-A4D7-426A-9D51-E22DC4D470A9}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Samples.Data.Services.Client</RootNamespace>
+    <AssemblyName>Microsoft.Samples.Data.Services.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WINDOWS_PHONE;TEXTRES_ONLYGETSTRING;ASTORIA_CLIENT;ASTORIA_LIGHT;ASTORIA_LIGHT_WP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS_PHONE;TEXTRES_ONLYGETSTRING;ASTORIA_CLIENT;ASTORIA_LIGHT;ASTORIA_LIGHT_WP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Services\Client\ALinq\QueryComponents.cs" />
+    <Compile Include="Data\Services\Client\ALinq\TypeSystem.cs" />
+    <Compile Include="Data\Services\Client\ALinq\WebConvert.cs" />
+    <Compile Include="Data\Services\Client\ArraySet.cs" />
+    <Compile Include="Data\Services\Client\AtomContentProperty.cs" />
+    <Compile Include="Data\Services\Client\AtomDataKind.cs" />
+    <Compile Include="Data\Services\Client\AtomEntry.cs" />
+    <Compile Include="Data\Services\Client\AtomFeed.cs" />
+    <Compile Include="Data\Services\Client\AtomMaterializer.cs" />
+    <Compile Include="Data\Services\Client\AtomMaterializerLog.cs" />
+    <Compile Include="Data\Services\Client\AtomParser.cs" />
+    <Compile Include="Data\Services\Client\BaseAsyncResult.cs" />
+    <Compile Include="Data\Services\Client\BatchStream.cs" />
+    <Compile Include="Data\Services\Client\BatchStreamState.cs" />
+    <Compile Include="Data\Services\Client\Binding\BindingEntityInfo.cs" />
+    <Compile Include="Data\Services\Client\Binding\BindingGraph.cs" />
+    <Compile Include="Data\Services\Client\Binding\BindingObserver.cs" />
+    <Compile Include="Data\Services\Client\Binding\BindingUtils.cs" />
+    <Compile Include="Data\Services\Client\Binding\DataServiceCollectionOfT.cs" />
+    <Compile Include="Data\Services\Client\Binding\DataServiceEntityAttribute.cs" />
+    <Compile Include="Data\Services\Client\Binding\DataServiceSaveChangesEventArgs.cs" />
+    <Compile Include="Data\Services\Client\Binding\EntityChangedParams.cs" />
+    <Compile Include="Data\Services\Client\Binding\EntityCollectionChangedParams.cs" />
+    <Compile Include="Data\Services\Client\Binding\LoadCompletedEventArgs.cs" />
+    <Compile Include="Data\Services\Client\ChangesetResponse.cs" />
+    <Compile Include="Data\Services\Client\ClientConvert.cs" />
+    <Compile Include="Data\Services\Client\ClientType.cs" />
+    <Compile Include="Data\Services\Client\Common.cs" />
+    <Compile Include="Data\Services\Client\DataServiceClientException.cs" />
+    <Compile Include="Data\Services\Client\DataServiceContext.cs" />
+    <Compile Include="Data\Services\Client\DataServiceEntityAttribute.cs" />
+    <Compile Include="Data\Services\Client\DataServiceKeyAttribute.cs" />
+    <Compile Include="Data\Services\Client\DataServiceProtocolVersion.cs" />
+    <Compile Include="Data\Services\Client\DataServiceQueryContinuation.cs" />
+    <Compile Include="Data\Services\Client\DataServiceQueryException.cs" />
+    <Compile Include="Data\Services\Client\DataServiceRequest.cs" />
+    <Compile Include="Data\Services\Client\DataServiceRequestArgs.cs" />
+    <Compile Include="Data\Services\Client\DataServiceRequestException.cs" />
+    <Compile Include="Data\Services\Client\DataServiceRequestOfT.cs" />
+    <Compile Include="Data\Services\Client\DataServiceResponse.cs" />
+    <Compile Include="Data\Services\Client\DataServiceState.cs" />
+    <Compile Include="Data\Services\Client\DataServiceStreamResponse.cs" />
+    <Compile Include="Data\Services\Client\Descriptor.cs" />
+    <Compile Include="Data\Services\Client\EntityDescriptor.cs" />
+    <Compile Include="Data\Services\Client\EntityPropertyMappingAttribute.cs" />
+    <Compile Include="Data\Services\Client\EntityStates.cs" />
+    <Compile Include="Data\Services\Client\Epm\EntityPropertyMappingInfo.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmContentSerializerBase.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmCustomContentSerializer.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmCustomContentWriterNodeData.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmSourcePathSegment.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmSourceTree.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmSyndicationContentSerializer.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmTargetPathSegment.cs" />
+    <Compile Include="Data\Services\Client\Epm\EpmTargetTree.cs" />
+    <Compile Include="Data\Services\Client\Error.cs" />
+    <Compile Include="Data\Services\Client\GetReadStreamResult.cs" />
+    <Compile Include="Data\Services\Client\HashSet.cs" />
+    <Compile Include="Microsoft.Samples.Data.Services.Client.cs" />
+    <Compile Include="Parameterized.Microsoft.Samples.Data.Services.Client.cs" />
+    <Compile Include="AssemblyAttributes.cs" />
+    <Compile Include="Data\Services\Client\HasStreamAttribute.cs" />
+    <Compile Include="Data\Services\Client\HttpProcessUtility.cs" />
+    <Compile Include="Data\Services\Client\HttpStack.cs" />
+    <Compile Include="Data\Services\Client\LinkDescriptor.cs" />
+    <Compile Include="Data\Services\Client\MaterializeFromAtom.cs" />
+    <Compile Include="Data\Services\Client\MediaEntryAttribute.cs" />
+    <Compile Include="Data\Services\Client\MergeOption.cs" />
+    <Compile Include="Data\Services\Client\MimeTypePropertyAttribute.cs" />
+    <Compile Include="Data\Services\Client\OperationResponse.cs" />
+    <Compile Include="Data\Services\Client\ProjectionPath.cs" />
+    <Compile Include="Data\Services\Client\ProjectionPathBuilder.cs" />
+    <Compile Include="Data\Services\Client\ProjectionPathSegment.cs" />
+    <Compile Include="Data\Services\Client\ProjectionPlan.cs" />
+    <Compile Include="Data\Services\Client\QueryOperationResponseOfT.cs" />
+    <Compile Include="Data\Services\Client\QueryResponse.cs" />
+    <Compile Include="Data\Services\Client\QueryResult.cs" />
+    <Compile Include="Data\Services\Client\ReadingWritingEntityEventArgs.cs" />
+    <Compile Include="Data\Services\Client\ReferenceEqualityComparer.cs" />
+    <Compile Include="Data\Services\Client\SaveChangesOptions.cs" />
+    <Compile Include="Data\Services\Client\SendingRequestEventArgs.cs" />
+    <Compile Include="Data\Services\Client\Util.cs" />
+    <Compile Include="Data\Services\Client\WebUtil.cs" />
+    <Compile Include="Data\Services\Client\XmlConstants.cs" />
+    <Compile Include="Data\Services\Client\XmlUtil.cs" />
+    <Compile Include="Data\Services\Client\Xml\XmlAtomErrorReader.cs" />
+    <Compile Include="Data\Services\Client\Xml\XmlWrappingReader.cs" />
+    <Compile Include="Data\Services\Http\CaseInsensitiveAscii.cs" />
+    <Compile Include="Data\Services\Http\ClientHttpWebRequest.cs" />
+    <Compile Include="Data\Services\Http\ClientHttpWebResponse.cs" />
+    <Compile Include="Data\Services\Http\ClientWebHeaderCollection.cs" />
+    <Compile Include="Data\Services\Http\HeaderInfo.cs" />
+    <Compile Include="Data\Services\Http\HeaderInfoTable.cs" />
+    <Compile Include="Data\Services\Http\HttpHeaderToName.cs" />
+    <Compile Include="Data\Services\Http\HttpRequestHeader.cs" />
+    <Compile Include="Data\Services\Http\HttpRequestHeaderEnumToName.cs" />
+    <Compile Include="Data\Services\Http\HttpStatusCode.cs" />
+    <Compile Include="Data\Services\Http\HttpWebRequest.cs" />
+    <Compile Include="Data\Services\Http\HttpWebResponse.cs" />
+    <Compile Include="Data\Services\Http\NameValueFromDictionary.cs" />
+    <Compile Include="Data\Services\Http\ValidationHelper.cs" />
+    <Compile Include="Data\Services\Http\WebException.cs" />
+    <Compile Include="Data\Services\Http\WebExceptionStatus.cs" />
+    <Compile Include="Data\Services\Http\WebHeaderCollection.cs" />
+    <Compile Include="Data\Services\Http\WebHeaderCollectionType.cs" />
+    <Compile Include="Data\Services\Http\WebParseError.cs" />
+    <Compile Include="Data\Services\Http\WebRequest.cs" />
+    <Compile Include="Data\Services\Http\WebResponse.cs" />
+    <None Include="Microsoft.Samples.Data.Services.Client.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Microsoft.Samples.Data.Services.Client.resources">
+      <LogicalName>Microsoft.Samples.Data.Services.Client.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Target Name="BeforeBuild">
+    <GenerateResource Sources="Microsoft.Samples.Data.Services.Client.txt" />
+  </Target>
+</Project>
