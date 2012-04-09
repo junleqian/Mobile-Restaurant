@@ -3,5 +3,6 @@
   <PropertyGroup>
     <ActivePublishProfile>RestaurantWebAppStaging</ActivePublishProfile>
     <DeploymentPromptBeforeUpgrading>False</DeploymentPromptBeforeUpgrading>
+    <RemoteDesktopMoreOptions>False</RemoteDesktopMoreOptions>
   </PropertyGroup>
 </Project>

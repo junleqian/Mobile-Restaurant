@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Microsoft.Samples.CRUDSqlAzure" generation="1" functional="0" release="0" Id="9f52e297-c3bd-4159-b4ff-501f99c80122" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Microsoft.Samples.CRUDSqlAzure" generation="1" functional="0" release="0" Id="a9123ca5-d822-4e99-a804-df54a2cefeba" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="Microsoft.Samples.CRUDSqlAzureGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -262,19 +262,19 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="517f696f-b6ae-43f9-b89e-b61bef759cc9" ref="Microsoft.RedDog.Contract\ServiceContract\Microsoft.Samples.CRUDSqlAzureContract@ServiceDefinition.build">
+    <implementation Id="5e0e065b-abcb-4124-950f-7ac581e11540" ref="Microsoft.RedDog.Contract\ServiceContract\Microsoft.Samples.CRUDSqlAzureContract@ServiceDefinition.build">
       <interfacereferences>
-        <interfaceReference Id="5ab3292f-4b91-493c-a8e2-026b1c000376" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint1@ServiceDefinition.build">
+        <interfaceReference Id="14be0ad6-969e-4222-b9ee-d3426e5e89b6" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint1@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/Microsoft.Samples.CRUDSqlAzure/Microsoft.Samples.CRUDSqlAzureGroup/CRUDSqlAzure.Web:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="2ee46ed7-4983-44fb-9e02-5160a241d0df" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint2@ServiceDefinition.build">
+        <interfaceReference Id="1acf344e-c38b-4bd9-bd62-41652970a1a6" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Endpoint2@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/Microsoft.Samples.CRUDSqlAzure/Microsoft.Samples.CRUDSqlAzureGroup/CRUDSqlAzure.Web:Endpoint2" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="8acc5204-235c-4f58-b480-7448b4b97acb" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition.build">
+        <interfaceReference Id="efa4329c-59db-430e-b6d9-399c6e9bc547" ref="Microsoft.RedDog.Contract\Interface\CRUDSqlAzure.Web:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition.build">
           <inPort>
             <inPortMoniker name="/Microsoft.Samples.CRUDSqlAzure/Microsoft.Samples.CRUDSqlAzureGroup/CRUDSqlAzure.Web:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
           </inPort>

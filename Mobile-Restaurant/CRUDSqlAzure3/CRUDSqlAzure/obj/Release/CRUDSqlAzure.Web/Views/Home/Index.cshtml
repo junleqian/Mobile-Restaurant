@@ -7,7 +7,7 @@
 }
 <h2>@ViewBag.Message</h2>
 <h3>
-    Welcome to the administration site for the Mobile Cloud Application Services!
+    Welcome to the Gour Web Portal!
 </h3>
 @if (MembershipHelper.IsUserLoggedIn())
 {
@@ -15,6 +15,7 @@
     {
         
         <table>
+        <tr>
     <th class="left-aligned">
             OrderID
         </th>
@@ -22,24 +23,23 @@
            OrderDate
         </th>
         <th>
-            CustomerId
+            CustomerName
         </th>
-        <th>
-            ReservationID
-        </th>
+      
         <th>
             Confirmation
         </th>
-    @{
+        </tr>
+    @{  string joinString = "SELECT  Orders.OrderID, Customers.Name, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerId=Customers.CustomerId ORDER BY Orders.OrderID";
         string connectionString = "Server=mbnd5ps73z.database.windows.net;Database=CRUDSqlAzure3;User ID=admin-498@mbnd5ps73z;Password=Passw0rd!;Trusted_Connection=False;Encrypt=True;Persist Security Info=True;MultipleActiveResultSets=True";
         string queryString = "SELECT * FROM Orders";
         var i = 0;
         SqlConnection DbConnection = new SqlConnection(connectionString);
         DbConnection.Open();
-        SqlCommand DbCommand = new SqlCommand(queryString, DbConnection);
+        SqlCommand DbCommand = new SqlCommand(joinString, DbConnection);
      
         SqlDataReader DbReader = DbCommand.ExecuteReader();
-        int fCount = DbReader.FieldCount;
+        
       }
     @while (DbReader.Read())
     {
@@ -49,14 +49,12 @@
       @(DbReader[0])
       </td>
       <td>
-      @(DbReader[1])
-      </td>
-      <td>
       @(DbReader[2])
       </td>
       <td>
-      @(DbReader[3])
+      @(DbReader[1])
       </td>
+   
       <td>
       </td>
       </tr>  
