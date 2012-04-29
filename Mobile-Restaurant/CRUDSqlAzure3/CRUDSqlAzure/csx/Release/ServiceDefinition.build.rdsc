@@ -3,5 +3,6 @@
   <elements>
     <interface name="CRUDSqlAzure.Web:Endpoint1" url="https://*:443" />
     <interface name="CRUDSqlAzure.Web:Endpoint2" url="http://*:10080" />
+    <interface name="CRUDSqlAzure.Web:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" url="tcp://*:3389" />
   </elements>
 </serviceContract>

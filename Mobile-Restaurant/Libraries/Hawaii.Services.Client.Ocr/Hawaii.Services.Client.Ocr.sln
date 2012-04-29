@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawaii.Services.Client.Ocr", "Hawaii.Services.Client.Ocr\Hawaii.Services.Client.Ocr.csproj", "{67F8BC51-91E2-491A-9D3A-7C86D0F62975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hawaii.Services.Client", "Hawaii.Services.Client\Hawaii.Services.Client.csproj", "{022061CB-0275-4964-8E45-0AA908926083}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67F8BC51-91E2-491A-9D3A-7C86D0F62975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F8BC51-91E2-491A-9D3A-7C86D0F62975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F8BC51-91E2-491A-9D3A-7C86D0F62975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F8BC51-91E2-491A-9D3A-7C86D0F62975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022061CB-0275-4964-8E45-0AA908926083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022061CB-0275-4964-8E45-0AA908926083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022061CB-0275-4964-8E45-0AA908926083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022061CB-0275-4964-8E45-0AA908926083}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

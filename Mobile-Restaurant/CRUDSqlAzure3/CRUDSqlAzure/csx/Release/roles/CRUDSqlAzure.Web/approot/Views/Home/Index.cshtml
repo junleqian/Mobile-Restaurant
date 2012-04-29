@@ -1,15 +1,71 @@
 ﻿@using Microsoft.Samples.CRUDSqlAzure.Web.Infrastructure
+@using System;
+@using System.Data;
+@using System.Data.SqlClient;
 @{
     ViewBag.Title = "Home";
 }
 <h2>@ViewBag.Message</h2>
 <h3>
-    Welcome to the administration site for the Mobile Cloud Application Services!
+    Welcome to the Gour Web Portal!
 </h3>
 @if (MembershipHelper.IsUserLoggedIn())
 {
     if (MembershipHelper.IsUserAdmin())
     {
+        
+        <table>
+        <tr>
+    <th class="left-aligned">
+            OrderID
+        </th>
+        <th>
+           OrderDate
+        </th>
+        <th>
+            CustomerName
+        </th>
+      
+        <th>
+            Confirmation
+        </th>
+        </tr>
+    @{  string joinString = "SELECT  Orders.OrderID, Customers.Name, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerId=Customers.CustomerId ORDER BY Orders.OrderID";
+        string connectionString = "Server=mbnd5ps73z.database.windows.net;Database=CRUDSqlAzure3;User ID=admin-498@mbnd5ps73z;Password=Passw0rd!;Trusted_Connection=False;Encrypt=True;Persist Security Info=True;MultipleActiveResultSets=True";
+        string queryString = "SELECT * FROM Orders";
+        var i = 0;
+        SqlConnection DbConnection = new SqlConnection(connectionString);
+        DbConnection.Open();
+        SqlCommand DbCommand = new SqlCommand(joinString, DbConnection);
+     
+        SqlDataReader DbReader = DbCommand.ExecuteReader();
+        
+      }
+    @while (DbReader.Read())
+    {
+        i++;
+      <tr class="d@((i % 2))">
+      <td>
+      @(DbReader[0])
+      </td>
+      <td>
+      @(DbReader[2])
+      </td>
+      <td>
+      @(DbReader[1])
+      </td>
+   
+      <td>
+      </td>
+      </tr>  
+        
+        
+        
+        
+        
+    }
+    
+    </table>
     <p>
         Select an option from the menu to manage users' permissions.
     </p>

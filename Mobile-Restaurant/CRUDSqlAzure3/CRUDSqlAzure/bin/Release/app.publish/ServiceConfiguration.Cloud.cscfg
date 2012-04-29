@@ -19,9 +19,15 @@
       <Setting name="serviceKey" value="iGkSRsrd6hcA6NpYNUNGckTq8bIF7w6g1kOZ8zvgW5k=" />
       <Setting name="trustedIssuersIdentifier" value="https://restaurantappnamespace.accesscontrol.windows.net/" />
       <Setting name="trustedIssuerName" value="watwindowsphone" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="remote-498" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHe4Bj/Tj7muRZ86ODkhbvwwDQYJKoZIhvcNAQEBBQAEggEAqHt4cUZJI5IPW+fhG5OhG7/JJBB880jX1JDZkvF+SAL/hggxy3rI0D/mCJncz2NzhWdH4U7z1D4YT8ILxUUSCo/GiKt7ZsXnO8YfczSk/i/+85e7/DNFK17JcOpKsPbDMTmFELwKiGlyN2ps4Hr7tSAoFczAuTqYCEYL5ZaD0qa+CR4EPdIapl0J7pCL/n62KUhVzo9k1IG09hANeDoooZ3zZWsDlzgS8EgxzTZL0Mu8X1OPlBT7/2FyDzfVBT3kweacp1p6tcHgJKmxcFzJFfGAmZ0bJwMUGuJry9zZnsFwZe42CO4hRKf5K+zmCKemyGnKxNvYXqWfuWVBGikVSzAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECK+/qLe61/APgBC9RVWBWgr8ggd+Vqq3Lvd5" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2013-04-09T23:59:59.0000000-05:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="SslCertificate" thumbprint="97FAF043F15DCAB2CBEF4CE657DD917882956B76" thumbprintAlgorithm="sha1" />
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="5163371D1CDAF1268DD72C85D8CBD524226D99BA" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
 </ServiceConfiguration>

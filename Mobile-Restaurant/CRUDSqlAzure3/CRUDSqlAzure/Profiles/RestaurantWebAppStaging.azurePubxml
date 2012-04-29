@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AzureCredentials>Azdem176S85990F</AzureCredentials>
+    <AzureCredentials>WindowsAzureAccount1</AzureCredentials>
     <AzureHostedServiceName>restaurantwebapp</AzureHostedServiceName>
     <AzureHostedServiceLabel>RestaurantWebApp</AzureHostedServiceLabel>
-    <AzureSlot>Staging</AzureSlot>
+    <AzureSlot>Production</AzureSlot>
     <AzureEnableIntelliTrace>False</AzureEnableIntelliTrace>
     <AzureEnableProfiling>False</AzureEnableProfiling>
     <AzureEnableWebDeploy>False</AzureEnableWebDeploy>
@@ -15,6 +15,6 @@
     <AzureServiceConfiguration>Cloud</AzureServiceConfiguration>
     <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
     <AzureAllowUpgrade>True</AzureAllowUpgrade>
-    <AzureEnableRemoteDesktop>False</AzureEnableRemoteDesktop>
+    <AzureEnableRemoteDesktop>True</AzureEnableRemoteDesktop>
   </PropertyGroup>
 </Project>

@@ -7,6 +7,11 @@
     <ConfigurationSettings>
       <Setting name="BlobSASExperiationTime" />
       <Setting name="ContainerSASExperiationTime" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" />
       <Setting name="realm" />
       <Setting name="serviceKey" />
       <Setting name="SqlSampleDataContextConnectionString" />
@@ -16,8 +21,13 @@
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="SslCertificate" localPort="443" />
       <InputEndpoint name="Endpoint2" protocol="http" port="10080" localPort="10080" />
+      <InputEndpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" protocol="tcp" port="3389" localPort="*" ignoreRoleInstanceStatus="true" />
+      <InternalEndpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" protocol="tcp">
+        <FixedPortRange min="3389" max="3389" />
+      </InternalEndpoint>
     </Endpoints>
     <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" storeLocation="LocalMachine" storeName="My" />
       <Certificate name="SslCertificate" storeLocation="LocalMachine" storeName="My" />
     </Certificates>
   </WebRole>
