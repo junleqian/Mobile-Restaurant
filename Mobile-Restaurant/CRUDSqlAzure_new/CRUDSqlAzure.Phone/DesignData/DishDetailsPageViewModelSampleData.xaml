@@ -1,0 +1,13 @@
+﻿<viewmodels:DishDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsSaving="True"
+    Message="Saving...">
+
+    <viewmodels:DishDetailsPageViewModel.Dish>
+        <models:Dish  DishID="1" DishName="dishName" RestaurantID="1" categoryID="1" UnitPrice="0.99" Discontinued="False" />
+    </viewmodels:DishDetailsPageViewModel.Dish>
+
+</viewmodels:DishDetailsPageViewModel>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Microsoft.Samples.CRUDSqlAzure.Web.Models.UserPermissionsModel>
+@{
+    ViewBag.Title = "Manage User Permissions";
+}
+<h2>
+    Manage User Permissions</h2>
+<p>
+    Select what content type can access each user.
+</p>
+
+<table>
+    <tr>
+        <th class="left-aligned">
+            User
+        </th>
+        <th>
+            SQL Read
+        </th>
+        <th>
+            SQL Create
+        </th>
+        <th>
+            SQL Update
+        </th>
+        <th>
+            SQL Delete
+        </th>
+    </tr>
+    @{ var i = 0; }
+    @foreach (var item in this.Model)
+    {
+        i++;
+
+        <tr class="d@((i % 2))">
+            <td class="left-aligned">
+                <div style="float: left"><img height="17" width="17" src="/Content/images/empty.png" alt="This User has pending changes" id="@(item.UserId)_PendingChanges"/></div>
+                @(item.UserName)
+            </td>
+            @{ 
+                var sqlRead = item.SqlRead ? "checked=\"checked\"" : string.Empty;
+                var sqlCreate = item.SqlCreate ? "checked=\"checked\"" : string.Empty;
+                var sqlUpdate = item.SqlUpdate ? "checked=\"checked\"" : string.Empty;
+                var sqlDelete = item.SqlDelete ? "checked=\"checked\"" : string.Empty;
+            }
+             
+            <td>
+                <input id="Sql_Read@(item.UserId)" onclick="NotifyPermissionsChange('@(item.UserId)')" type="checkbox" @this.Html.Raw(sqlRead) />
+            </td>
+            <td>
+                <input id="Sql_Create@(item.UserId)" onclick="NotifyPermissionsChange('@(item.UserId)')" type="checkbox" @this.Html.Raw(sqlCreate) />
+            </td>
+            <td>
+                <input id="Sql_Update@(item.UserId)" onclick="NotifyPermissionsChange('@(item.UserId)')" type="checkbox" @this.Html.Raw(sqlUpdate) />
+            </td>
+            <td>
+                <input id="Sql_Delete@(item.UserId)" onclick="NotifyPermissionsChange('@(item.UserId)')" type="checkbox" @this.Html.Raw(sqlDelete) />
+            </td>
+            
+        </tr>
+    }
+</table>
+<br />
+<input type="image" value="Log On" src="@Url.Content("~/Content/images/Save.png")" onclick="CommitChanges()"/>
+
+<script type="text/javascript">
+//<![CDATA[
+    var actionUrl = '@this.Html.Raw(this.Url.Action("SetUserPermissions"))';
+//]]>
+</script>

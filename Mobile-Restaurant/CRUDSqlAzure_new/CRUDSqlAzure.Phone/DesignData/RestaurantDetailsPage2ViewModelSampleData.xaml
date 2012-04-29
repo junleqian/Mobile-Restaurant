@@ -1,0 +1,17 @@
+﻿<viewmodels:RestaurantDetailsPage2ViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    Message="Saving...">
+
+    <viewmodels:RestaurantDetailsPage2ViewModel.Restaurant>
+        <models:Restaurant RestaurantID="1" RestaurantName="RestaurantName1" Address="Address" City="City" Region="Region" PostalCode="Postal Code" Description="Description" Phone="Phone" HomePage="Home Page"/>
+    </viewmodels:RestaurantDetailsPage2ViewModel.Restaurant>
+
+    <viewmodels:RestaurantDetailsPage2ViewModel.Items>
+        <models:Review  ReviewID="1" CustomerID="1" NumStars="3" CustomerName="Customer Name"  Comment="Comment sadfawff" Star1="1" Star2="1" Star3="1" Star4="0.5" Star5="0.5" />
+        <models:Review  ReviewID="2" CustomerID="2" NumStars="4" CustomerName="Customer Name 2"  Comment="Comment sadfawff 2" Star1="1" Star2="1" Star3="1" Star4="1" Star5="0.5" />
+    </viewmodels:RestaurantDetailsPage2ViewModel.Items>
+
+</viewmodels:RestaurantDetailsPage2ViewModel>
