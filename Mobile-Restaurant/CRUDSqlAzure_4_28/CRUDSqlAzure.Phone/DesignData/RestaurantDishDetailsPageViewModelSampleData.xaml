@@ -1,0 +1,14 @@
+﻿<viewmodels:RestaurantDishDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsListing="False"
+    Message="Listing..."
+    PageNumber="1">
+
+    <viewmodels:RestaurantDishDetailsPageViewModel.Items>
+        <models:Rating  RatingID="1" CustomerID="1" DishID="1" NumStars="3" CustomerName="Customer Name"  Comment="Comment sadfawff" Star1="1" Star2="1" Star3="1" Star4="0.5" Star5="0.5" />
+    </viewmodels:RestaurantDishDetailsPageViewModel.Items>
+
+</viewmodels:RestaurantDishDetailsPageViewModel>

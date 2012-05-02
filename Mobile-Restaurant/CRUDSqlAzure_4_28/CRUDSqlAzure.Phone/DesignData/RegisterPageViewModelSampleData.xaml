@@ -1,0 +1,8 @@
+﻿<models:RegisterPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    UserName="sample_user"
+    EMail="sample@user.com">
+    
+</models:RegisterPageViewModel>

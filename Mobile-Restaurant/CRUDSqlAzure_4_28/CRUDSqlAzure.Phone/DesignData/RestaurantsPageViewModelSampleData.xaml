@@ -1,0 +1,16 @@
+﻿<viewmodels:RestaurantsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsListing="False"
+    Message="Listing..."
+    PageNumber="1">
+
+    <viewmodels:RestaurantsPageViewModel.Items>
+        <models:Restaurant RestaurantID="1" RestaurantName="RestaurantName1" Address="Address" City="City" Region="Region" PostalCode="Postal Code" Description="Description" Phone="Phone" HomePage="Home Page"/>
+        <models:Restaurant RestaurantID="2" RestaurantName="RestaurantName2" Address="Address" City="City" Region="Region" PostalCode="Postal Code" Description="Description" Phone="Phone" HomePage="Home Page"/>
+        <models:Restaurant RestaurantID="3" RestaurantName="RestaurantName3" Address="Address" City="City" Region="Region" PostalCode="Postal Code" Description="Description" Phone="Phone" HomePage="Home Page"/>
+    </viewmodels:RestaurantsPageViewModel.Items>
+
+</viewmodels:RestaurantsPageViewModel>

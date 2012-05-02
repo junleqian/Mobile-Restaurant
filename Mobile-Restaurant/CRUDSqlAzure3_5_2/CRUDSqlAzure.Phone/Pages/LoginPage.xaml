@@ -1,0 +1,86 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Microsoft.Samples.CRUDSqlAzure.Phone.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+	xmlns:converters="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Converters"
+    d:DataContext="{d:DesignData ../DesignData/LoginPageViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    xmlns:fed="clr-namespace:SL.Phone.Federation.Controls;assembly=SL.Phone.Federation"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+      <Storyboard x:Name="PageTransitionReset">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+          <EasingDoubleKeyFrame KeyTime="00:00:00" Value="90"/>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)">
+          <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+      </Storyboard>
+      <Storyboard x:Name="PageTransitionIn">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+          <EasingDoubleKeyFrame KeyTime="00:00:00" Value="90"/>
+          <EasingDoubleKeyFrame KeyTime="00:00:00.3" Value="0">
+            <EasingDoubleKeyFrame.EasingFunction>
+              <CircleEase EasingMode="EaseIn"/>
+            </EasingDoubleKeyFrame.EasingFunction>
+          </EasingDoubleKeyFrame>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)">
+          <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+          <EasingDoubleKeyFrame KeyTime="00:00:00.3" Value="0">
+            <EasingDoubleKeyFrame.EasingFunction>
+              <CircleEase EasingMode="EaseIn"/>
+            </EasingDoubleKeyFrame.EasingFunction>
+          </EasingDoubleKeyFrame>
+        </DoubleAnimationUsingKeyFrames>
+      </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+  
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.Projection>
+            <PlaneProjection />
+        </Grid.Projection>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="{StaticResource ApplicationNameString}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="log in" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentGrid" Grid.Row="1" Margin="12,12,0,12">
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+            <fed:AccessControlServiceSignIn Height="480"
+                x:Name="SignInControl" 
+                Realm="{StaticResource realm}"
+                ServiceNamespace="{StaticResource acsNamespace}"
+                RequestSecurityTokenResponseStore="{StaticResource rstrStore}" />
+
+                <HyperlinkButton VerticalAlignment="Center" HorizontalAlignment="Right" Content="Install Certificate" NavigateUri="{Binding SslCertificateUri}" TargetName="_blank" Visibility="{Binding IsSslCertificateLinkVisisble, Converter={StaticResource VisibilityConverter}}" Margin="0,20,20,25" />
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <TextBlock Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}" Text="{Binding Message}" HorizontalAlignment="Left" TextWrapping="Wrap" />
+                <ProgressBar Height="20" IsIndeterminate="True" Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}}" />
+                        </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

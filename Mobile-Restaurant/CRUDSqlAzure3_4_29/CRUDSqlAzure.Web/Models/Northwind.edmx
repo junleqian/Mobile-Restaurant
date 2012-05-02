@@ -1,0 +1,1155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NorthwindModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="NorthwindModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="NorthwindModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="NorthwindModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dishes" EntityType="NorthwindModel.Store.Dishes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order Details" EntityType="NorthwindModel.Store.Order Details" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="NorthwindModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ratings" EntityType="NorthwindModel.Store.Ratings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reservations" EntityType="NorthwindModel.Store.Reservations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Restaurants" EntityType="NorthwindModel.Store.Restaurants" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reviews" EntityType="NorthwindModel.Store.Reviews" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Schedules" EntityType="NorthwindModel.Store.Schedules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tables" EntityType="NorthwindModel.Store.Tables" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="NorthwindModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPrivilege" EntityType="NorthwindModel.Store.UserPrivilege" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DishView" EntityType="NorthwindModel.Store.DishView" store:Type="Views" store:Schema="dbo" store:Name="DishView">
+            <DefiningQuery>SELECT 
+      [DishView].[DishID] AS [DishID], 
+      [DishView].[DishName] AS [DishName], 
+      [DishView].[RestaurantID] AS [RestaurantID], 
+      [DishView].[CategoryID] AS [CategoryID], 
+      [DishView].[UnitPrice] AS [UnitPrice], 
+      [DishView].[Description] AS [Description], 
+      [DishView].[AveRating] AS [AveRating]
+      FROM [dbo].[DishView] AS [DishView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="NorthwindModel.Store.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order Details" EntitySet="Order Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Products" Association="NorthwindModel.Store.FK_Order_Details_Products">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Order Details" EntitySet="Order Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_1" Association="NorthwindModel.Store.FK_Orders_1">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="NorthwindModel.Store.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="NorthwindModel.Store.FK_Products_Suppliers">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ratings_1" Association="NorthwindModel.Store.FK_Ratings_1">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Ratings" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurants_0" Association="NorthwindModel.Store.FK_Restaurants_0">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="Restaurants" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_0" Association="NorthwindModel.Store.FK_Reviews_0">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tables_0" Association="NorthwindModel.Store.FK_Tables_0">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Tables" EntitySet="Tables" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="AvailableStart" Type="int" />
+          <Property Name="AvailableEnd" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="Address" Type="varchar" MaxLength="40" />
+          <Property Name="City" Type="varchar" MaxLength="40" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="CreditCard" Type="varchar" MaxLength="40" />
+          <Property Name="isVerified" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishID" />
+          </Key>
+          <Property Name="DishID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DishName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="RestaurantID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitsInStock" Type="smallint" />
+          <Property Name="UnitsOnOrder" Type="smallint" />
+          <Property Name="ReorderLevel" Type="smallint" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="image" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Order Details">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="DishID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="DishID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="money" Nullable="false" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="Discount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ReservationID" Type="int" />
+          <Property Name="RestaurantID" Type="int" />
+        </EntityType>
+        <EntityType Name="Ratings">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="DishID" Type="int" Nullable="false" />
+          <Property Name="NumStars" Type="int" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="Star1" Type="float" />
+          <Property Name="Star2" Type="float" />
+          <Property Name="Star3" Type="float" />
+          <Property Name="Star4" Type="float" />
+          <Property Name="Star5" Type="float" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+          <Property Name="TableID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="StartTime" Type="datetime2" Nullable="false" />
+          <Property Name="EndTime" Type="datetime2" Nullable="false" />
+          <Property Name="NumGuests" Type="int" />
+          <Property Name="OrderID" Type="int" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RestaurantName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="25" />
+          <Property Name="Region" Type="nvarchar" MaxLength="25" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="HomePage" Type="ntext" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ScheduleID" Type="int" />
+          <Property Name="NumTables" Type="int" Nullable="false" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" Nullable="false" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="NumStars" Type="int" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Star1" Type="float" />
+          <Property Name="Star2" Type="float" />
+          <Property Name="Star3" Type="float" />
+          <Property Name="Star4" Type="float" />
+          <Property Name="Star5" Type="float" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="int" Nullable="false" />
+          <Property Name="sunOpen" Type="int" />
+          <Property Name="sunClose" Type="int" />
+          <Property Name="tueOpen" Type="int" />
+          <Property Name="tueClose" Type="int" />
+          <Property Name="wedOpen" Type="int" />
+          <Property Name="wedClose" Type="int" />
+          <Property Name="thuOpen" Type="int" />
+          <Property Name="thuClose" Type="int" />
+          <Property Name="friOpen" Type="int" />
+          <Property Name="friClose" Type="int" />
+          <Property Name="satOpen" Type="int" />
+          <Property Name="satClose" Type="int" />
+          <Property Name="monOpen" Type="int" />
+          <Property Name="monClose" Type="int" />
+        </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Name="TableID" Type="int" Nullable="false" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+          <Property Name="NumSeats" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="UserPrivilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Privilege" Type="nvarchar" Nullable="false" MaxLength="1024" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CRUDSqlAzure3.dbo.DishView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DishView">
+          <Key>
+            <PropertyRef Name="DishID" />
+            <PropertyRef Name="DishName" />
+          </Key>
+          <Property Name="DishID" Type="int" Nullable="false" />
+          <Property Name="DishName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="RestaurantID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AveRating" Type="int" />
+        </EntityType>
+        <Association Name="FK_Order_Details_Orders">
+          <End Role="Orders" Type="NorthwindModel.Store.Orders" Multiplicity="1" />
+          <End Role="Order Details" Type="NorthwindModel.Store.Order Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order Details">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Products">
+          <End Role="Dishes" Type="NorthwindModel.Store.Dishes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Order Details" Type="NorthwindModel.Store.Order Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishID" />
+            </Principal>
+            <Dependent Role="Order Details">
+              <PropertyRef Name="DishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_1">
+          <End Role="Restaurants" Type="NorthwindModel.Store.Restaurants" Multiplicity="0..1" />
+          <End Role="Orders" Type="NorthwindModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="NorthwindModel.Store.Categories" Multiplicity="0..1" />
+          <End Role="Dishes" Type="NorthwindModel.Store.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Restaurants" Type="NorthwindModel.Store.Restaurants" Multiplicity="0..1" />
+          <End Role="Dishes" Type="NorthwindModel.Store.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ratings_1">
+          <End Role="Dishes" Type="NorthwindModel.Store.Dishes" Multiplicity="1" />
+          <End Role="Ratings" Type="NorthwindModel.Store.Ratings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishID" />
+            </Principal>
+            <Dependent Role="Ratings">
+              <PropertyRef Name="DishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurants_0">
+          <End Role="Schedules" Type="NorthwindModel.Store.Schedules" Multiplicity="0..1" />
+          <End Role="Restaurants" Type="NorthwindModel.Store.Restaurants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="Restaurants">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_0">
+          <End Role="Restaurants" Type="NorthwindModel.Store.Restaurants" Multiplicity="1" />
+          <End Role="Reviews" Type="NorthwindModel.Store.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tables_0">
+          <End Role="Restaurants" Type="NorthwindModel.Store.Restaurants" Multiplicity="1" />
+          <End Role="Tables" Type="NorthwindModel.Store.Tables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Tables">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NorthwindModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="NorthwindModel.Category" />
+          <EntitySet Name="Dishes" EntityType="NorthwindModel.Dishes" />
+          <EntitySet Name="Restaurants" EntityType="NorthwindModel.Restaurants" />
+          <AssociationSet Name="FK_Products_Categories1" Association="NorthwindModel.FK_Products_Categories1">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers1" Association="NorthwindModel.FK_Products_Suppliers1">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <EntitySet Name="Order_Details" EntityType="NorthwindModel.Order_Details" />
+          <EntitySet Name="Orders" EntityType="NorthwindModel.Orders" />
+          <EntitySet Name="Ratings" EntityType="NorthwindModel.Ratings" />
+          <EntitySet Name="Reservations" EntityType="NorthwindModel.Reservations" />
+          <EntitySet Name="Reviews" EntityType="NorthwindModel.Reviews" />
+          <EntitySet Name="Schedules" EntityType="NorthwindModel.Schedules" />
+          <EntitySet Name="Tables" EntityType="NorthwindModel.Tables" />
+          <AssociationSet Name="FK_Order_Details_Products" Association="NorthwindModel.FK_Order_Details_Products">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ratings_1" Association="NorthwindModel.FK_Ratings_1">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Ratings" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="NorthwindModel.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_1" Association="NorthwindModel.FK_Orders_1">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_2" Association="NorthwindModel.FK_Orders_2">
+            <End Role="Reservations" EntitySet="Reservations" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_3" Association="NorthwindModel.FK_Reservations_3">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_0" Association="NorthwindModel.FK_Reservations_0">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_1" Association="NorthwindModel.FK_Reservations_1">
+            <End Role="Tables" EntitySet="Tables" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurants_0" Association="NorthwindModel.FK_Restaurants_0">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="Restaurants" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tables_0" Association="NorthwindModel.FK_Tables_0">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Tables" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_0" Association="NorthwindModel.FK_Reviews_0">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="NorthwindModel.Customers" />
+          <AssociationSet Name="FK_Orders_01" Association="NorthwindModel.FK_Orders_01">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ratings_01" Association="NorthwindModel.FK_Ratings_01">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Ratings" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_21" Association="NorthwindModel.FK_Reservations_21">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_11" Association="NorthwindModel.FK_Reviews_11">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <EntitySet Name="DishView" EntityType="NorthwindModel.DishView" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Dishes" Relationship="NorthwindModel.FK_Products_Categories1" FromRole="Category" ToRole="Dishes" />
+          <Property Type="Int32" Name="AvailableStart" />
+          <Property Type="Int32" Name="AvailableEnd" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishID" />
+          </Key>
+          <Property Type="Int32" Name="DishID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DishName" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RestaurantID" />
+          <Property Type="Int32" Name="CategoryID" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="19" Scale="4" />
+          <Property Type="Int16" Name="UnitsInStock" />
+          <Property Type="Int16" Name="UnitsOnOrder" />
+          <Property Type="Int16" Name="ReorderLevel" />
+          <Property Type="Boolean" Name="Discontinued" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories" Relationship="NorthwindModel.FK_Products_Categories1" FromRole="Dishes" ToRole="Category" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Products_Suppliers1" FromRole="Dishes" ToRole="Restaurants" />
+          <NavigationProperty Name="Order_Details" Relationship="NorthwindModel.FK_Order_Details_Products" FromRole="Dishes" ToRole="Order_Details" />
+          <NavigationProperty Name="Ratings" Relationship="NorthwindModel.FK_Ratings_1" FromRole="Dishes" ToRole="Ratings" />
+          <Property Type="Binary" Name="Image" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="CategoryName" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Type="Int32" Name="RestaurantID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RestaurantName" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Region" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HomePage" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dishes" Relationship="NorthwindModel.FK_Products_Suppliers1" FromRole="Restaurants" ToRole="Dishes" />
+          <Property Type="Int32" Name="ScheduleID" />
+          <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Orders_1" FromRole="Restaurants" ToRole="Orders" />
+          <NavigationProperty Name="Reservations" Relationship="NorthwindModel.FK_Reservations_0" FromRole="Restaurants" ToRole="Reservations" />
+          <NavigationProperty Name="Schedules" Relationship="NorthwindModel.FK_Restaurants_0" FromRole="Restaurants" ToRole="Schedules" />
+          <NavigationProperty Name="Tables" Relationship="NorthwindModel.FK_Tables_0" FromRole="Restaurants" ToRole="Tables" />
+          <NavigationProperty Name="Reviews" Relationship="NorthwindModel.FK_Reviews_0" FromRole="Restaurants" ToRole="Reviews" />
+          <Property Type="Int32" Name="NumTables" Nullable="false" />
+          <Property Type="Binary" Name="Image" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Products_Categories1">
+          <End Type="NorthwindModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Dishes" Role="Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers1">
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Dishes" Role="Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="DishID" />
+          </Key>
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="Int32" Name="DishID" Nullable="false" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Int16" Name="Quantity" Nullable="false" />
+          <Property Type="Single" Name="Discount" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="NorthwindModel.FK_Order_Details_Products" FromRole="Order_Details" ToRole="Dishes" />
+          <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Order_Details_Orders" FromRole="Order_Details" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Type="Int32" Name="OrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="OrderDate" />
+          <Property Type="Int32" Name="ReservationID" />
+          <Property Type="Int32" Name="RestaurantID" />
+          <NavigationProperty Name="Order_Details" Relationship="NorthwindModel.FK_Order_Details_Orders" FromRole="Orders" ToRole="Order_Details" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Orders_1" FromRole="Orders" ToRole="Restaurants" />
+          <NavigationProperty Name="Reservations" Relationship="NorthwindModel.FK_Orders_2" FromRole="Orders" ToRole="Reservations" />
+          <NavigationProperty Name="Reservations1" Relationship="NorthwindModel.FK_Reservations_3" FromRole="Orders" ToRole="Reservations" />
+          <Property Type="Int32" Name="CustomerId" />
+          <NavigationProperty Name="Customers" Relationship="NorthwindModel.FK_Orders_01" FromRole="Orders" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Ratings">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Type="Int32" Name="RatingID" Nullable="false" />
+          <Property Type="Int32" Name="DishID" Nullable="false" />
+          <Property Type="Int32" Name="NumStars" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dishes" Relationship="NorthwindModel.FK_Ratings_1" FromRole="Ratings" ToRole="Dishes" />
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="NorthwindModel.FK_Ratings_01" FromRole="Ratings" ToRole="Customers" />
+          <Property Type="String" Name="CustomerName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Star1" />
+          <Property Type="Double" Name="Star2" />
+          <Property Type="Double" Name="Star3" />
+          <Property Type="Double" Name="Star4" />
+          <Property Type="Double" Name="Star5" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Type="Int32" Name="ReservationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RestaurantID" Nullable="false" />
+          <Property Type="Int32" Name="TableID" Nullable="false" />
+          <Property Type="Int32" Name="NumGuests" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="Int32" Name="OrderID" />
+          <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Orders_2" FromRole="Reservations" ToRole="Orders" />
+          <NavigationProperty Name="Orders1" Relationship="NorthwindModel.FK_Reservations_3" FromRole="Reservations" ToRole="Orders" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Reservations_0" FromRole="Reservations" ToRole="Restaurants" />
+          <NavigationProperty Name="Tables" Relationship="NorthwindModel.FK_Reservations_1" FromRole="Reservations" ToRole="Tables" />
+          <Property Type="Int32" Name="CustomerID" />
+          <NavigationProperty Name="Customers" Relationship="NorthwindModel.FK_Reservations_21" FromRole="Reservations" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Type="Int32" Name="ReviewID" Nullable="false" />
+          <Property Type="Int32" Name="RestaurantID" Nullable="false" />
+          <Property Type="Int32" Name="NumStars" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Reviews_0" FromRole="Reviews" ToRole="Restaurants" />
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="NorthwindModel.FK_Reviews_11" FromRole="Reviews" ToRole="Customers" />
+          <Property Type="Double" Name="Star1" />
+          <Property Type="Double" Name="Star2" />
+          <Property Type="Double" Name="Star3" />
+          <Property Type="Double" Name="Star4" />
+          <Property Type="Double" Name="Star5" />
+          <Property Type="String" Name="CustomerName" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Type="Int32" Name="ScheduleID" Nullable="false" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Restaurants_0" FromRole="Schedules" ToRole="Restaurants" />
+          <Property Type="Int32" Name="sunOpen" />
+          <Property Type="Int32" Name="sunClose" />
+          <Property Type="Int32" Name="tueOpen" />
+          <Property Type="Int32" Name="tueClose" />
+          <Property Type="Int32" Name="wedOpen" />
+          <Property Type="Int32" Name="wedClose" />
+          <Property Type="Int32" Name="thuOpen" />
+          <Property Type="Int32" Name="thuClose" />
+          <Property Type="Int32" Name="friOpen" />
+          <Property Type="Int32" Name="friClose" />
+          <Property Type="Int32" Name="satOpen" />
+          <Property Type="Int32" Name="satClose" />
+          <Property Type="Int32" Name="monOpen" />
+          <Property Type="Int32" Name="monClose" />
+        </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Type="Int32" Name="TableID" Nullable="false" />
+          <Property Type="Int32" Name="RestaurantID" Nullable="false" />
+          <Property Type="Int32" Name="NumSeats" Nullable="false" />
+          <NavigationProperty Name="Reservations" Relationship="NorthwindModel.FK_Reservations_1" FromRole="Tables" ToRole="Reservations" />
+          <NavigationProperty Name="Restaurants" Relationship="NorthwindModel.FK_Tables_0" FromRole="Tables" ToRole="Restaurants" />
+        </EntityType>
+        <Association Name="FK_Order_Details_Products">
+          <End Type="NorthwindModel.Dishes" Role="Dishes" Multiplicity="1" />
+          <End Type="NorthwindModel.Order_Details" Role="Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="DishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ratings_1">
+          <End Type="NorthwindModel.Dishes" Role="Dishes" Multiplicity="1" />
+          <End Type="NorthwindModel.Ratings" Role="Ratings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishID" />
+            </Principal>
+            <Dependent Role="Ratings">
+              <PropertyRef Name="DishID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Orders">
+          <End Type="NorthwindModel.Orders" Role="Orders" Multiplicity="1" />
+          <End Type="NorthwindModel.Order_Details" Role="Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_1">
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_2">
+          <End Type="NorthwindModel.Reservations" Role="Reservations" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservations">
+              <PropertyRef Name="ReservationID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ReservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_3">
+          <End Type="NorthwindModel.Orders" Role="Orders" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Reservations" Role="Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_0">
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="1" />
+          <End Type="NorthwindModel.Reservations" Role="Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_1">
+          <End Type="NorthwindModel.Tables" Role="Tables" Multiplicity="1" />
+          <End Type="NorthwindModel.Reservations" Role="Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tables">
+              <PropertyRef Name="TableID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurants_0">
+          <End Type="NorthwindModel.Schedules" Role="Schedules" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ScheduleID" />
+            </Principal>
+            <Dependent Role="Restaurants">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tables_0">
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="1" />
+          <End Type="NorthwindModel.Tables" Role="Tables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Tables">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_0">
+          <End Type="NorthwindModel.Restaurants" Role="Restaurants" Multiplicity="1" />
+          <End Type="NorthwindModel.Reviews" Role="Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Type="Int32" Name="CustomerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreditCard" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isVerified" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Orders_01" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="Ratings" Relationship="NorthwindModel.FK_Ratings_01" FromRole="Customers" ToRole="Ratings" />
+          <NavigationProperty Name="Reservations" Relationship="NorthwindModel.FK_Reservations_21" FromRole="Customers" ToRole="Reservations" />
+          <NavigationProperty Name="Reviews" Relationship="NorthwindModel.FK_Reviews_11" FromRole="Customers" ToRole="Reviews" />
+        </EntityType>
+        <Association Name="FK_Orders_01">
+          <End Type="NorthwindModel.Customers" Role="Customers" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ratings_01">
+          <End Type="NorthwindModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="NorthwindModel.Ratings" Role="Ratings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Ratings">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_21">
+          <End Type="NorthwindModel.Customers" Role="Customers" Multiplicity="0..1" />
+          <End Type="NorthwindModel.Reservations" Role="Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_11">
+          <End Type="NorthwindModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="NorthwindModel.Reviews" Role="Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DishView">
+          <Key>
+            <PropertyRef Name="DishID" />
+            <PropertyRef Name="DishName" />
+          </Key>
+          <Property Type="Int32" Name="DishID" Nullable="false" />
+          <Property Type="String" Name="DishName" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RestaurantID" />
+          <Property Type="Int32" Name="CategoryID" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="19" Scale="4" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AveRating" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="NorthwindModel.Category"><MappingFragment StoreEntitySet="Categories">
+            <ScalarProperty Name="AvailableEnd" ColumnName="AvailableEnd" />
+                <ScalarProperty Name="AvailableStart" ColumnName="AvailableStart" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Picture" ColumnName="Picture" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="NorthwindModel.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+                <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+                <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+                <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="DishName" ColumnName="DishName" />
+                <ScalarProperty Name="DishID" ColumnName="DishID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="NorthwindModel.Restaurants">
+              <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NumTables" ColumnName="NumTables" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RestaurantName" ColumnName="RestaurantName" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="NorthwindModel.Order_Details">
+              <MappingFragment StoreEntitySet="Order Details">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="DishID" ColumnName="DishID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="NorthwindModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="NorthwindModel.Ratings">
+              <MappingFragment StoreEntitySet="Ratings">
+                <ScalarProperty Name="Star5" ColumnName="Star5" />
+                <ScalarProperty Name="Star4" ColumnName="Star4" />
+                <ScalarProperty Name="Star3" ColumnName="Star3" />
+                <ScalarProperty Name="Star2" ColumnName="Star2" />
+                <ScalarProperty Name="Star1" ColumnName="Star1" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="NumStars" ColumnName="NumStars" />
+                <ScalarProperty Name="DishID" ColumnName="DishID" />
+                <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="NorthwindModel.Reservations">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="NumGuests" ColumnName="NumGuests" />
+                <ScalarProperty Name="TableID" ColumnName="TableID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="NorthwindModel.Reviews">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Star5" ColumnName="Star5" />
+                <ScalarProperty Name="Star4" ColumnName="Star4" />
+                <ScalarProperty Name="Star3" ColumnName="Star3" />
+                <ScalarProperty Name="Star2" ColumnName="Star2" />
+                <ScalarProperty Name="Star1" ColumnName="Star1" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="NumStars" ColumnName="NumStars" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="NorthwindModel.Schedules">
+              <MappingFragment StoreEntitySet="Schedules">
+                <ScalarProperty Name="monClose" ColumnName="monClose" />
+                <ScalarProperty Name="monOpen" ColumnName="monOpen" />
+                <ScalarProperty Name="satClose" ColumnName="satClose" />
+                <ScalarProperty Name="satOpen" ColumnName="satOpen" />
+                <ScalarProperty Name="friClose" ColumnName="friClose" />
+                <ScalarProperty Name="friOpen" ColumnName="friOpen" />
+                <ScalarProperty Name="thuClose" ColumnName="thuClose" />
+                <ScalarProperty Name="thuOpen" ColumnName="thuOpen" />
+                <ScalarProperty Name="wedClose" ColumnName="wedClose" />
+                <ScalarProperty Name="wedOpen" ColumnName="wedOpen" />
+                <ScalarProperty Name="tueClose" ColumnName="tueClose" />
+                <ScalarProperty Name="tueOpen" ColumnName="tueOpen" />
+                <ScalarProperty Name="sunClose" ColumnName="sunClose" />
+                <ScalarProperty Name="sunOpen" ColumnName="sunOpen" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="NorthwindModel.Tables">
+              <MappingFragment StoreEntitySet="Tables">
+                <ScalarProperty Name="NumSeats" ColumnName="NumSeats" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="TableID" ColumnName="TableID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="NorthwindModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+                <ScalarProperty Name="CreditCard" ColumnName="CreditCard" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishView">
+            <EntityTypeMapping TypeName="NorthwindModel.DishView">
+              <MappingFragment StoreEntitySet="DishView">
+                <ScalarProperty Name="AveRating" ColumnName="AveRating" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="DishName" ColumnName="DishName" />
+                <ScalarProperty Name="DishID" ColumnName="DishID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Northwind" ZoomLevel="100">
+        <EntityTypeShape EntityType="NorthwindModel.Category" Width="1.5" PointX="4.5" PointY="2.125" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Dishes" Width="1.5" PointX="6.625" PointY="2" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Restaurants" Width="1.5" PointX="8.75" PointY="2.125" Height="4.480205078125" IsExpanded="true" />
+        <AssociationConnector Association="NorthwindModel.FK_Products_Categories1" >
+          <ConnectorPoint PointX="6" PointY="2.2625" />
+          <ConnectorPoint PointX="6.625" PointY="2.2625" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Products_Suppliers1" >
+          <ConnectorPoint PointX="8.75" PointY="2.2625" />
+          <ConnectorPoint PointX="8.125" PointY="2.2625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NorthwindModel.Order_Details" Width="1.5" PointX="6.625" PointY="3" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Orders" Width="1.5" PointX="6.625" PointY="3.875" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Ratings" Width="1.5" PointX="4.75" PointY="3" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Reservations" Width="1.5" PointX="11.125" PointY="3" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.Reviews" Width="1.5" PointX="3" PointY="3" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Schedules" Width="1.5" PointX="8.75" PointY="1.25" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="NorthwindModel.Tables" Width="1.5" PointX="11.125" PointY="2.125" Height="0.4" IsExpanded="false" />
+        <AssociationConnector Association="NorthwindModel.FK_Order_Details_Products" >
+          <ConnectorPoint PointX="6.98437375" PointY="2.4" />
+          <ConnectorPoint PointX="6.98437375" PointY="3" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Ratings_1" >
+          <ConnectorPoint PointX="6.625" PointY="2.4" />
+          <ConnectorPoint PointX="6.25" PointY="3" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Order_Details_Orders" >
+          <ConnectorPoint PointX="7.375" PointY="3.875" />
+          <ConnectorPoint PointX="7.375" PointY="3.4" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Orders_1" >
+          <ConnectorPoint PointX="8.75" PointY="4.075" />
+          <ConnectorPoint PointX="8.5833333333333339" PointY="4.0749999999999993" />
+          <ConnectorPoint PointX="8.4166666666666661" PointY="4.075" />
+          <ConnectorPoint PointX="8.125" PointY="4.075" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Orders_2" ManuallyRouted="false" >
+          <ConnectorPoint PointX="12.12787094921875" PointY="6.5186979166666656" />
+          <ConnectorPoint PointX="12.12787094921875" PointY="6.7686979166666656" />
+          <ConnectorPoint PointX="8.5" PointY="6.7686979166666656" />
+          <ConnectorPoint PointX="8.5" PointY="3.9437479999999994" />
+          <ConnectorPoint PointX="8.125" PointY="3.9437479999999994" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reservations_3" >
+          <ConnectorPoint PointX="8.125" PointY="4.206252000000001" />
+          <ConnectorPoint PointX="8.5" PointY="4.206252000000001" />
+          <ConnectorPoint PointX="8.5" PointY="6.7843229166666656" />
+          <ConnectorPoint PointX="11.848054423828124" PointY="6.7843229166666656" />
+          <ConnectorPoint PointX="11.848054423828124" PointY="6.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reservations_0" >
+          <ConnectorPoint PointX="10.25" PointY="5.5366255990885449" />
+          <ConnectorPoint PointX="11.125" PointY="5.5366255990885449" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reservations_1" >
+          <ConnectorPoint PointX="11.875" PointY="2.525" />
+          <ConnectorPoint PointX="11.875" PointY="3" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Restaurants_0" >
+          <ConnectorPoint PointX="9.4687475" PointY="1.65" />
+          <ConnectorPoint PointX="9.4687475" PointY="2.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Tables_0" >
+          <ConnectorPoint PointX="10.25" PointY="2.325" />
+          <ConnectorPoint PointX="11.125" PointY="2.325" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reviews_0" ManuallyRouted="false" >
+          <ConnectorPoint PointX="8.75" PointY="6.0421719791666657" />
+          <ConnectorPoint PointX="8.5833333333333339" PointY="6.0421719791666648" />
+          <ConnectorPoint PointX="8.3541666666666661" PointY="6.0421719791666657" />
+          <ConnectorPoint PointX="3.5468775" PointY="6.0421719791666657" />
+          <ConnectorPoint PointX="3.5468775" PointY="3.4" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NorthwindModel.Customers" Width="1.5" PointX="6.625" PointY="4.75" Height="0.4" IsExpanded="false" />
+        <AssociationConnector Association="NorthwindModel.FK_Orders_01" >
+          <ConnectorPoint PointX="7.375" PointY="4.75" />
+          <ConnectorPoint PointX="7.375" PointY="4.275" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Ratings_01" >
+          <ConnectorPoint PointX="6.625" PointY="4.95" />
+          <ConnectorPoint PointX="5.5" PointY="4.95" />
+          <ConnectorPoint PointX="5.5" PointY="3.4" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reservations_21" >
+          <ConnectorPoint PointX="8.125" PointY="4.95" />
+          <ConnectorPoint PointX="8.4375" PointY="4.95" />
+          <ConnectorPoint PointX="8.4375" PointY="6.7999479166666656" />
+          <ConnectorPoint PointX="11.455275211914062" PointY="6.7999479166666656" />
+          <ConnectorPoint PointX="11.455275211914062" PointY="6.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="NorthwindModel.FK_Reviews_11" >
+          <ConnectorPoint PointX="6.625" PointY="4.8187474999999989" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="4.818747499999998" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="4.8187474999999989" />
+          <ConnectorPoint PointX="4.05469125" PointY="4.8187474999999989" />
+          <ConnectorPoint PointX="4.05469125" PointY="3.4" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NorthwindModel.DishView" Width="1.5" PointX="3.75" PointY="5.375" Height="0.4" IsExpanded="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

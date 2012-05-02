@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Microsoft.Samples.CRUDSqlAzure.Phone.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <controls:Panorama Title="gour home">
+
+            <!--Panorama item one-->
+            <controls:PanoramaItem Header="profile">
+                <Grid Name="dishesgrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!--Button Content=" VIEW ALL " Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="button1" VerticalAlignment="Center" Width="Auto" Click="button1_Click" /-->
+                    <TextBlock Grid.Row="1" Height="72" HorizontalAlignment="Left" Margin="0,0,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" />
+                    <Button Content=" PROFILE " Grid.Row="2" Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="profile_button" VerticalAlignment="Center" Width="Auto" Click="profile_Click" />
+                    <TextBlock Grid.Row="0" Height="72" HorizontalAlignment="Left" Margin="0,0,0,0" Name="locationBlock" Text="TextBlock" VerticalAlignment="Top" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Panorama item two-->
+            <!--controls:PanoramaItem Header="restaurants">
+                <Grid Name="restaurantsgrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content=" VIEW ALL " Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="button2" VerticalAlignment="Center" Width="Auto" Click="button2_Click" />
+                </Grid>
+            </controls:PanoramaItem-->
+
+            <!--Panorama item three-->
+            <!--controls:PanoramaItem Header="categories">
+                <Grid Name="categoriesgrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content=" VIEW ALL " Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="button3" VerticalAlignment="Center" Width="Auto" Click="button3_Click" />
+                </Grid>
+            </controls:PanoramaItem-->
+
+            <!--Panorama item four-->
+            <controls:PanoramaItem Header="restaurants">
+                <Grid Name="browsegrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content=" BROWSE ALL " Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="button4" VerticalAlignment="Center" Width="Auto" Click="button4_Click" />
+                    <TextBox Name="searchBox" Grid.Row="2" HorizontalAlignment="Left" Width="275"/>
+                    <Button Content=" SEARCH " Grid.Row="2" HorizontalAlignment="Right" Grid.RowSpan="1" Height="Auto"  Margin="0,0,0,0" Name="button5" VerticalAlignment="Center" Width="Auto" Click="button5_Click" />
+                    <Button Content=" BROWSE MAP " Grid.Row="1" Grid.RowSpan="1" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,0" Name="button6" VerticalAlignment="Center" Width="Auto" Click="button6_Click" />
+                </Grid>
+            </controls:PanoramaItem>
+
+        <!--Panorama item five-->
+        <controls:PanoramaItem Header="reservations">
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="reserveGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="ItemsListBox" Grid.Row="0" ItemsSource="{Binding Items}" SelectionChanged="ItemSelectionChanged">
+                        <ListBox.Template>
+                            <ControlTemplate TargetType="ListBox">
+                                <ScrollViewer>
+                                    <StackPanel>
+                                        <ItemsPresenter/>
+                                        <!--HyperlinkButton Content="Load More ..." Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding LoadMoreResultsVisible, Converter={StaticResource VisibilityConverter}}" Click="LoadMoreItems" /-->
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </ListBox.Template>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17">
+                                    <TextBlock Text="{Binding RestaurantName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding StartTime}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Name="mvMessage" Grid.Row="1" Margin="12,5" TextWrapping="Wrap" Text="{Binding Message}" />
+                    <ProgressBar Name="mvProgressBar" Height="20" Grid.Row="2" IsIndeterminate="True" Visibility="{Binding IsListing, Converter={StaticResource VisibilityConverter}}" />
+                </Grid>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    
+    </Grid>
+
+    <!--Panorama-based applications should not show an ApplicationBar-->
+
+</phone:PhoneApplicationPage>

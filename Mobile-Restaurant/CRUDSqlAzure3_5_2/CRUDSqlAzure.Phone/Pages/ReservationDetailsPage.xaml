@@ -1,0 +1,66 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Microsoft.Samples.CRUDSqlAzure.Phone.Pages.ReservationDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="GOUR" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="reservation" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.Resources>
+                <src:ImageConverter x:Key="imgConverter"></src:ImageConverter>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="nameBox" Text="Restaurant Name" Margin="12,0,0,0" Grid.Row="0" Style="{StaticResource PhoneTextTitle2Style}"/>
+            <Image Name="restaurantImage" Grid.Row="0" Width="320" Height="240" Margin="12,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            <TextBlock Name="AddressBox" Text="Address: " Margin="12,290,0,0"/>
+            <TextBlock Name="CityBox" Text="City: " Margin="12,315,0,0"/>
+            <TextBlock Name="PhoneBox" Text="Phone: " Margin="12,340,0,0"/>
+            <TextBlock Name="DateBox" Text="Date: " Margin="280,290,0,0"/>
+            <TextBlock Name="TimeBox" Text="Time: " Margin="280,315,0,0"/>
+            <TextBlock Grid.Row="2" Margin="12,5" TextWrapping="Wrap" Text="{Binding Message}" />
+            <ProgressBar Name="mvProgressBar" Height="20" Grid.Row="3" IsIndeterminate="True" Visibility="{Binding IsListing, Converter={StaticResource VisibilityConverter}}" />
+            <Button Content="Update Order" Height="72" HorizontalAlignment="Left" Margin="12,400,0,0" Name="button1" VerticalAlignment="Top" Width="240" Click="button1_Click" IsEnabled="False" />
+            <Button Content="In Restaurant" Height="72" HorizontalAlignment="Left" Margin="12,472,0,0" Name="button2" VerticalAlignment="Top" Width="240" Click="button2_Click" IsEnabled="False" />
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

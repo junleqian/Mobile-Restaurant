@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReservationService3" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://838d25755ffd4a45ba4d8d8e856bb408.cloudapp.net/Services/ReservationService3.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://838d25755ffd4a45ba4d8d8e856bb408.cloudapp.net/Services/ReservationService3.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReservationService3_testService3_InputMessage">
+    <wsdl:part name="parameters" element="tns:testService3" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService3_testService3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:testService3Response" />
+  </wsdl:message>
+  <wsdl:portType name="IReservationService3">
+    <wsdl:operation name="testService3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService3/testService3" message="tns:IReservationService3_testService3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService3/testService3Response" message="tns:IReservationService3_testService3_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReservationService3" type="tns:IReservationService3">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="testService3">
+      <soap:operation soapAction="http://tempuri.org/IReservationService3/testService3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReservationService3">
+    <wsdl:port name="BasicHttpBinding_IReservationService3" binding="tns:BasicHttpBinding_IReservationService3">
+      <soap:address location="http://rd00155d381714:10080/Services/ReservationService3.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

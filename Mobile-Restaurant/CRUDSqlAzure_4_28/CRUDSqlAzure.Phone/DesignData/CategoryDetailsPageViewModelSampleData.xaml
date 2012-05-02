@@ -1,0 +1,13 @@
+﻿<viewmodels:CategoryDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsSaving="True"
+    Message="Saving...">
+
+    <viewmodels:CategoryDetailsPageViewModel.Category>
+        <models:Category CategoryID="1" CategoryName="CategoryName1" Description="Description"/>
+    </viewmodels:CategoryDetailsPageViewModel.Category>
+
+</viewmodels:CategoryDetailsPageViewModel>

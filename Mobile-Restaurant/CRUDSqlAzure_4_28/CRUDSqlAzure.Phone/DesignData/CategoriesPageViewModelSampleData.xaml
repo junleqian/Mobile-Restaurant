@@ -1,0 +1,16 @@
+﻿<viewmodels:CategoriesPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsListing="False"
+    Message="Listing..."
+    PageNumber="1">
+
+    <viewmodels:CategoriesPageViewModel.Items>
+        <models:Category CategoryID="1" CategoryName="CategoryName1" Description="Description"/>
+        <models:Category CategoryID="2" CategoryName="CategoryName2" Description="Description"/>
+        <models:Category CategoryID="3" CategoryName="CategoryName3" Description="Description"/>
+    </viewmodels:CategoriesPageViewModel.Items>
+
+</viewmodels:CategoriesPageViewModel>

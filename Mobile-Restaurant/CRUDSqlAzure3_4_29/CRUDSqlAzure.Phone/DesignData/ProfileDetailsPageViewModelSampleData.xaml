@@ -1,0 +1,13 @@
+﻿<viewmodels:CustomerDetailsPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.ViewModel"
+    xmlns:models="clr-namespace:Microsoft.Samples.CRUDSqlAzure.Phone.Models"
+    IsSaving="True"
+    Message="Saving...">
+
+    <viewmodels:CustomerDetailsPageViewModel.Customer>
+        <models:Customer CustomerID="1" Name="Name1" Email="email" Phone="Phone num" Address="address" City="city" CreditCard="CreditCard" PostalCode="post code"/>
+    </viewmodels:CustomerDetailsPageViewModel.Customer>
+
+</viewmodels:CustomerDetailsPageViewModel>

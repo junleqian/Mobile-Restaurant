@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CRUDSqlAzure", "CRUDSqlAzure\CRUDSqlAzure.ccproj", "{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDSqlAzure.Web", "CRUDSqlAzure.Web\CRUDSqlAzure.Web.csproj", "{6E2E3626-2624-4520-84E1-F1AAC627DE8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPE.OAuth", "..\Libraries\DPE.OAuth\DPE.OAuth.csproj", "{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C43DD0F-EB00-4A5B-91D5-90642F3D5CBE}.Release|x86.ActiveCfg = Release|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E2E3626-2624-4520-84E1-F1AAC627DE8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Debug|x86.ActiveCfg = Debug|x86
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Debug|x86.Build.0 = Debug|x86
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Release|x86.ActiveCfg = Release|x86
+		{60BDE313-7F51-4AD6-96AF-AFC94A6FEAE4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
